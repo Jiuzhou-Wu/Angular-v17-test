@@ -1,5 +1,6 @@
 <h2>Product</h2>
-<div *ngFor="let product of products">
+
+<!-- <div *ngFor="let product of products">
   <h3>
     <a [title]="product.name + ' details'">
       {{ product.name }}
@@ -11,7 +12,32 @@
   <button type="button" (click)="share()">Share</button>
 
   <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
-</div>
+</div> -->
+
+@for (product of products; track product; let i = $index) {
+  <h3>
+    <a [title]="product.name + ' details'">
+      {{ product.name }}
+    </a>
+  </h3>
+
+  @if (product.description) {
+    <p>Description: {{ product.description }}</p>
+  } 
+
+  <button type="button" (click)="share()">Share</button>
+
+  <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
+}
+<!-- <mat-card>
+  <p>Hello Mat Card</p>
+  @defer (on hover) {
+    <p>this is the hover test. this paragraph should been showed on the screen after hover </p>
+  } @placeholder { 
+    <p>this is just the place holder</p>
+  }
+</mat-card> -->
+
 <div style="margin-top: 20px;">
   <mat-form-field appearance="outline">
     <mat-label>Outline form field</mat-label>
