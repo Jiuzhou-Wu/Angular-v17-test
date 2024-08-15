@@ -1,1 +1,13 @@
-<p>tic-tac-toe works!</p>
+<h3>Current Player: {{player}}</h3>
+
+<button mat-raised-button (click)="newGame()">Start New Game</button>
+
+@if (winner) {
+    <h2>Player {{winner}} won the game!!!</h2>
+}
+
+<main style="margin-top: 20px;">
+    @for (val of squares; track val; let i=$index) {
+        <app-tic-tac-toe-square [val]="val" [disable]="winner" (click)="makeMove(i)"></app-tic-tac-toe-square>
+    }
+</main>
