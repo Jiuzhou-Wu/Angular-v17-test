@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-top-bar',
@@ -9,5 +9,10 @@ import { RouterModule } from '@angular/router';
   styleUrl: './top-bar.component.scss'
 })
 export class TopBarComponent {
+  private router = inject(Router);
+
+  get routerLink() {
+    return this.router.url;
+  }
 
 }
