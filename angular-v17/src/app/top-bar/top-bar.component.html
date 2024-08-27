@@ -1,12 +1,29 @@
   <a [routerLink]="['/']">
-    <h1>My Store</h1>
+    <h1>Home</h1>
   </a>
 
-  @if (routerLink !== '/tic-tac-toe') {
-    <a class="button fancy-button" [routerLink]="['tic-tac-toe']">
-      Tic-Tac-Toe Game
-    </a>
+  @if (routerLink === '/product-store') {
+    <h1>My Store</h1>
   }
+
+  @if (routerLink === '/tic-tac-toe') {
+    <h1>Tic Tac Toe</h1>
+  }
+
+  <div class="button-container">
+    @if (routerLink !== '/product-store') {
+      <a class="button fancy-button" [routerLink]="['/product-store']">
+        My Store
+      </a>
+    }
+    
+    @if (routerLink !== '/tic-tac-toe') {
+      <a class="button fancy-button" [routerLink]="['tic-tac-toe']">
+        Tic-Tac-Toe Game
+      </a>
+    }
+    
+    <a class="button fancy-button"><em class="material-icons">shopping_cart</em>Checkout</a>
+  </div>
   
-  <a class="button fancy-button"><em class="material-icons">shopping_cart</em>Checkout</a>
   

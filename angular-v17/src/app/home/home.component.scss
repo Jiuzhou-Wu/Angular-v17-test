@@ -1,0 +1,155 @@
+::ng-deep {
+    app-home {
+        width: 100%;
+        min-height: calc(100vh - 68px);
+        background-image: url('../../assets/background-main-dark.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+mat-card {
+    margin: auto;
+    width: 30vw;
+    height: 60vh;
+    position: relative;
+    border-radius: 25px;
+
+    transform-style: preserve-3d;
+    transform: 
+        perspective(5000px) 
+        rotateY(var(--rotateY)) 
+        rotateX(var(--rotateX));
+}
+
+mat-card > * {
+    text-shadow: 0 0 0.3em currentColor;
+}
+
+mat-card::before,
+mat-card::after {
+    content: '';
+    position: absolute;
+    border-radius: inherit;
+}
+
+mat-card::before {
+    inset: -0.25rem;
+    background: black;
+    transform: translateZ(-49px);
+    filter: blur(15px);
+    opacity: 0.5;
+}
+
+mat-card::after {
+    inset: 0;
+    background: linear-gradient(-45deg, red, blue);
+    transform:translateZ(-50px);
+}
+
+.card-container {
+    position: relative;
+    display: grid;
+    grid-template: repeat(3,1fr) / repeat( 3, 1fr);
+    width: 50%;
+    margin: auto;
+    height: 50%;
+    margin-top: 15vh;
+}
+
+mat-card {
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+
+    transition: transform 250ms ease;
+}
+
+.card-container > .pos {
+    z-index: 10;
+    position: absolute;
+    // outline: 5px solid lime;
+}
+
+.card-container > .pos:nth-child(1) {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    inset: 0;
+}
+.card-container > .pos:nth-child(2) {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    inset: 0;
+}
+.card-container > .pos:nth-child(3) {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    inset: 0;
+}
+.card-container > .pos:nth-child(4) {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    inset: 0;
+}
+.card-container > .pos:nth-child(5) {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    inset: 0;
+}
+.card-container > .pos:nth-child(6) {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    inset: 0;
+}
+.card-container > .pos:nth-child(7) {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    inset: 0;
+}
+.card-container > .pos:nth-child(8) {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    inset: 0;
+}
+.card-container > .pos:nth-child(9) {
+    grid-column: 3/4;
+    grid-row: 3/4;
+    inset: 0;
+}
+
+.card-container > div:nth-child(1):hover ~ mat-card {
+    --rotateX: 25deg;
+    --rotateY: -25deg;
+}
+.card-container > div:nth-child(2):hover ~ mat-card {
+    --rotateX: 25deg;
+    --rotateY: 0deg;
+}
+.card-container > div:nth-child(3):hover ~ mat-card {
+    --rotateX: 25deg;
+    --rotateY: 25deg;
+}
+.card-container > div:nth-child(4):hover ~ mat-card {
+    --rotateX: 0deg;
+    --rotateY: -25deg;
+}
+.card-container > div:nth-child(5):hover ~ mat-card {
+    --rotateX: 0deg;
+    --rotateY: 0deg;
+}
+.card-container > div:nth-child(6):hover ~ mat-card {
+    --rotateX: 0deg;
+    --rotateY: 25deg;
+}
+.card-container > div:nth-child(7):hover ~ mat-card {
+    --rotateX: -25deg;
+    --rotateY: -25deg;
+}
+.card-container > div:nth-child(8):hover ~ mat-card {
+    --rotateX: -25deg;
+    --rotateY: 0deg;
+}
+.card-container > div:nth-child(9):hover ~ mat-card {
+    --rotateX: -25deg;
+    --rotateY: 25deg;
+}
